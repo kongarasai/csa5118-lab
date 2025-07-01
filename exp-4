@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <string.h>
+char keygen(char key, char msg) {
+    return ((key + msg - 2 * 'A') % 26 + 'A');
+}
+int main() {
+    char msg[] = "HELLO", key[] = "KEY";
+    char cipher[100];
+    for (int i = 0; i < strlen(msg); i++)
+        cipher[i] = keygen(key[i % strlen(key)], msg[i]);
+    cipher[strlen(msg)] = '\0';
+    printf("Encrypted: %s\n", cipher);
+    return 0;
+}
