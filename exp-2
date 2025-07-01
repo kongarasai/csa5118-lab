@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+
+void monoEncrypt(char *plaintext, char *keyMap) {
+    for (int i = 0; plaintext[i] != '\0'; ++i) {
+        char ch = plaintext[i];
+        if (ch >= 'a' && ch <= 'z')
+            printf("%c", keyMap[ch - 'a']);
+        else if (ch >= 'A' && ch <= 'Z')
+            printf("%c", keyMap[ch - 'A'] - 32); // uppercase
+        else
+            printf("%c", ch);
+    }
+    printf("\n");
+}
+
+int main() {
+    char text[100];
+    char keyMap[26] = "phqgiumeaylnofdxjkrcvstzwb";  // Substitution key
+
+    printf("Enter plaintext: ");
+    gets(text);
+
+    printf("Encrypted: ");
+    monoEncrypt(text, keyMap);
+
+    return 0;
+}
