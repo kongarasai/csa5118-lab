@@ -1,0 +1,15 @@
+#include <stdio.h>
+long power(long a, long b, long n) {
+    long res = 1;
+    for (int i = 0; i < b; i++) res = (res * a) % n;
+    return res;
+}
+int main() {
+    long p = 3, q = 11, n = p * q, e = 3, msg = 9;
+    long phi = (p - 1) * (q - 1);
+    long d = 7; // Manually found: (d * e) % phi = 1
+    long c = power(msg, e, n);
+    long m = power(c, d, n);
+    printf("Encrypted: %ld\nDecrypted: %ld\n", c, m);
+    return 0;
+}
