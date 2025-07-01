@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char msg[] = "HELLO WORLD";
+    int rail = 2;
+    char rail1[100], rail2[100];
+    int j = 0, k = 0;
+    for (int i = 0; i < strlen(msg); i++)
+        (i % 2 == 0) ? (rail1[j++] = msg[i]) : (rail2[k++] = msg[i]);
+    rail1[j] = rail2[k] = '\0';
+    printf("Encrypted: %s%s\n", rail1, rail2);
+    return 0;
+}
